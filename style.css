@@ -1,0 +1,102 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    transform-style: preserve-3d;
+    position: absolute;
+}
+
+.spinner.spin {
+    animation: spin 20s linear infinite;
+    translate: -160px 0;
+}
+
+.spinner.spin-two-axis {
+    animation: spin-two-axis 20s linear infinite;
+    translate: 160px 0;
+}
+
+.spinner > div {
+    height: 60px;
+    width: 60px;
+    outline: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.3);
+    position: absolute;
+}
+
+.spinner > div:nth-of-type(1) {
+    transform: translateZ(30px)
+}
+
+.spinner > div:nth-of-type(2) {
+    transform: rotateY(90deg) translateX(50%);
+    transform-origin: top right;
+}
+
+.spinner > div:nth-of-type(3) {
+    transform: rotateY(180deg) translateZ(30px);
+}
+
+.spinner > div:nth-of-type(4) {
+    transform: rotateY(-90deg) translateX(-50%);
+    transform-origin: top left;
+}
+
+.spinner > div:nth-of-type(5) {
+    transform: rotateX(90deg) translateY(-50%);
+    transform-origin: top center;
+}
+
+.spinner > div:nth-of-type(6) {
+    transform: rotateX(-90deg) translateY(50%);
+    transform-origin: bottom center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(30deg);
+    }
+    25% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(750deg);
+    }
+    50% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(30deg);
+    }
+    75% {
+        transform: rotate(45deg) rotateX(690deg) rotateY(30deg);
+    }
+    100% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(30deg);
+    }
+}
+
+@keyframes spin-two-axis {
+    0% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(30deg);
+    }
+    50% {
+        transform: rotate(45deg) rotateX(690deg) rotateY(750deg);
+    }
+    100% {
+        transform: rotate(45deg) rotateX(-30deg) rotateY(30deg);
+    }
+}
+
+h3 {
+    position: absolute;
+}
+
+h3:first-of-type {
+    translate: -160px -80px;
+}
+
+h3:last-of-type {
+    translate: 160px -80px;
+}
